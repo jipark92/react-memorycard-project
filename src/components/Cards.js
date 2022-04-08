@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 
-export default function Game(props) {
+export default function Cards(props) {
 
 
     return (
