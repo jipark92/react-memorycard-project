@@ -16,19 +16,19 @@ export default function Content() {
             setHighScore(score);
         }
     };
-    //shuffler every score/gamestatus update
+    checkHighScore();
+    //shuffler every score/gamestatus render
     useEffect(()=>{
         animeDatas.sort(() => 0.5 - Math.random());
-        checkHighScore();
     },[score,gameLostStatus,gameWonStatus])
-    //check clicked
+    //check clicked function
     const checkCard = (e) =>{
         animeDatas.find((animeData)=>{
-            //check if card has been touched
+            //check if same card then reset game
             if(parseInt(e.target.id) === animeData.id){
                 if(animeData.toggle === true){
                     setScore(0);
-                    setGameLostStatus(true);
+                    setGameLostStatus((prevLostStatus) => prevLostStatus = !prevLostStatus);
                     resetCards();
                     return;
                 }
@@ -40,7 +40,7 @@ export default function Content() {
                 setScore((prevScore)=>{
                     return prevScore + 1;
                 })
-                //if 20streaks, check win
+                //check win if user wins 20 in a row
                 checkWinner();
             };
         })
@@ -53,13 +53,13 @@ export default function Content() {
             }
         })
     };
-    //check to see if they won. get all 20 right in a row.
+    //check to see if user got all 20 in a row.
     const checkWinner = () => {
         if (score === animeDatas.length){
             setGameWonStatus(true);
         }
     };
-    //card finder/maker
+    //card find then make
     const showAnime = animeDatas.map((animeData)=>{
         return (
                 <div className="cards" key={animeData.id} onClick={checkCard} id={animeData.id}>
@@ -70,9 +70,9 @@ export default function Content() {
     });
     return (
         <div className='content-container'>
-            {/* game over modal upon losing winning streak */}
+            {/* game over modal upon ending win streak */}
             {gameLostStatus && <LoseModal click={()=>setGameLostStatus(false)}/>}
-            {/* game win modal upon getting 20 streaks win */}
+            {/* game win modal upon getting 20 in a row*/}
             {gameWonStatus && <WinModal click={()=>setGameWonStatus(false)}/>}
             <ScoreBoard
                 score={score}
