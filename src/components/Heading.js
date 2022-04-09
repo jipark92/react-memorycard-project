@@ -7,7 +7,6 @@ export default function Heading() {
                 <span>M</span>
                 <span>E</span>
                 <span>M</span>
-                <span>E</span>
                 <span>O</span>
                 <span>R</span>
                 <span>Y</span>
