@@ -159,6 +159,14 @@ img {
   text-shadow: 0px 0px 10px yellow;
 }
 
+.score {
+  font-size: 1.2rem;
+}
+
+.high-score{
+  font-size: 1.2rem;
+}
+
 /* title animation */
 .text-container {
   font-size: 2rem;
