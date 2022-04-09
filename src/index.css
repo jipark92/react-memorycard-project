@@ -165,6 +165,7 @@ img {
   font-size: 2rem;
   font-weight: 1000;
   display: flex;
+  flex-wrap: wrap;
   gap: 0.5rem;
 }
 
@@ -178,7 +179,6 @@ img {
     color: #FFF;
     text-shadow: 0 0 10px #0652DD, 0 0 50px #0652DD, 0 0 100px #0652DD;
   }
-  
   10%, 90% {
     color: #111;
     text-shadow: none;
@@ -209,6 +209,7 @@ img {
   animation-delay: 1.5s;
 }
 
+/* mobile compatible - works well on iphone 12 and ipad that I own */
 @media (max-width: 480px){
   .modal-container{
     display: flex;
