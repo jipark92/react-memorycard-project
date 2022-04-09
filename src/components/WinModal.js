@@ -1,7 +1,6 @@
 import React from 'react';
 
 export default function WinModal(props) {
-
     return (
         <div className='modal-container'>
             <div className='modal'>
