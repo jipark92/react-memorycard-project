@@ -2,7 +2,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  text-shadow: 0px 0px 10px yellow;
 }
 
 #root {
@@ -67,6 +66,7 @@
   width: 140px;
   height: 150px;
   background-color: black;
+  text-shadow: 0px 0px 10px yellow;
 }
 
 .cards:hover {
@@ -94,6 +94,7 @@ img {
 .footer-container{
   color: white;
   padding:1rem;
+  text-shadow: 0px 0px 10px yellow;
 }
 
 .modal-container{
@@ -148,17 +149,14 @@ img {
   font-weight: 1000;
 }
 
-#disabled {
-  pointer-events: none;
-  cursor: not-allowed;
-}
-
 .score-number  {
   color: yellow;
+  text-shadow: 0px 0px 10px yellow;
 }
 
 .hscore-number  {
   color: yellow;
+  text-shadow: 0px 0px 10px yellow;
 }
 
 /* title animation */
@@ -168,11 +166,9 @@ img {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
-  
 }
 
 .text-container > span {
-  
   text-transform: uppercase;
   animation: glow 2s ease-in-out infinite;
 }
