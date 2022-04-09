@@ -2,7 +2,7 @@ export default [{
     "id": 0,
     "img": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fyt3.ggpht.com%2Fa%2FAGF-l79G_ZKAHD8GSmWtOb2qzNz1pcC0JU0v5Jul6g%3Ds900-mo-c-c0xffffffff-rj-k-no&f=1&nofb=1",
     "name":"Naruto",
-    "toggle": "false"
+    "toggle": false
 },
 {
     "id": 1,
