@@ -18,7 +18,7 @@ export default function Content() {
     };
     //shuffler every score/gamestatus update
     useEffect(()=>{
-        animeDatas.sort(()=> 0.5 - Math.random());
+        animeDatas.sort(() => 0.5 - Math.random());
         checkHighScore();
     },[score,gameLostStatus,gameWonStatus])
     //check clicked
