@@ -87,6 +87,36 @@ export default [{
     "img": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.anime-planet.com%2Fimages%2Fcharacters%2Fzero-two-136345.jpg%3Ft%3D1552710628&f=1&nofb=1",
     "name":"Zero",
     "toggle": false
+},
+{
+    "id": 15,
+    "img": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.ewJV_HbDZHTITzKx88WXZAHaEK%26pid%3DApi&f=1",
+    "name":"Tanjiro",
+    "toggle": false
+},
+{
+    "id": 16,
+    "img": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2F736x%2Fc8%2Faf%2F52%2Fc8af52b1cdc4d4a138a501d974f88324.jpg&f=1&nofb=1",
+    "name":"Nezuko",
+    "toggle": false
+},
+{
+    "id": 17,
+    "img": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fstatic.wikia.nocookie.net%2Fkimetsu-no-yaiba%2Fimages%2F8%2F85%2FSenjuro_anime.png%2Frevision%2Flatest%2Fscale-to-width-down%2F350%3Fcb%3D20201025191554&f=1&nofb=1",
+    "name":"Senjuro",
+    "toggle": false
+},
+{
+    "id": 18,
+    "img": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimgix.ranker.com%2Flist_img_v2%2F1374%2F2681374%2Foriginal%2Fthe-best-hisoka-quotes%3Fw%3D817%26h%3D427%26fm%3Djpg%26q%3D50%26fit%3Dcrop&f=1&nofb=1",
+    "name":"Hisoka",
+    "toggle": false
+},
+{
+    "id": 19,
+    "img": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.Hb9vCKu2HZ42BRGi_PnWBwHaEK%26pid%3DApi&f=1",
+    "name":"Gon",
+    "toggle": false
 }
 
 ]

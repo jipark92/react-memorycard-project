@@ -1,11 +1,13 @@
 import React, { useEffect, useState} from 'react'
 import animeDatas from '../data'
 import ScoreBoard from './Scoreboard'
+import Modal from './Modal'
 
 export default function Content() {
     //useState variables
     const [score, setScore] = useState(0)
     const [highScore, setHighScore] = useState(0)
+    const [gameStatus, setGameStatus] = useState(false)
 
     //check highscore
     const checkHighScore = () => {
@@ -13,12 +15,17 @@ export default function Content() {
             setHighScore(score)
         }
     }
+
+    //check to see if they won. get all 20 right in a row.
+    const checkWinner = () => {
+        
+    }
     
     //shuffler
     useEffect(()=>{
         animeDatas.sort(()=> 0.5 - Math.random())
         checkHighScore()
-    },[score])
+    },[score,gameStatus])
 
     //check clicked
     const checkCard = (e) =>{
@@ -27,7 +34,7 @@ export default function Content() {
             if(parseInt(e.target.id) === animeData.id){
                 if(animeData.toggle === true){
                     setScore(0)
-                    alert('over')
+                    setGameStatus(true)
                     resetCards()
                     return
                 }
@@ -35,12 +42,11 @@ export default function Content() {
             //marks the card as touched
             if(parseInt(e.target.id) === animeData.id){
                 animeData.toggle = true
-                // console.log(animeData)
+                setGameStatus(false)
                 setScore((prevScore)=>{
                     return prevScore + 1
                 })
             }
-            // console.log(animeData)
         })
     }
 
@@ -56,22 +62,25 @@ export default function Content() {
     //card finder/maker
     const showAnime = animeDatas.map((animeData)=>{
         return (
-            <div className="card-container" key={animeData.id}>
-                <div className="cards" onClick={checkCard} id={animeData.id}>
+                <div className="cards" key={animeData.id} onClick={checkCard} id={animeData.id}>
                     <img src={animeData.img} alt="anime pic"/>
                     <p>{animeData.name}</p>
                 </div>
-            </div>
+            
         )
     })
 
     return (
-        <div className="card-container">
-            {showAnime}
+        <div className='content-container'>
+            {/* game over modal box upon losing winning streak */}
+            {gameStatus && <Modal click={()=>setGameStatus(false)}/>}
             <ScoreBoard
                 score={score}
                 highScore={highScore}
             />
+            <div className="card-container"> 
+                {showAnime}
+            </div>
         </div>
     )
 }
