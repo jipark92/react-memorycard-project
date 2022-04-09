@@ -23,11 +23,13 @@ export default function Content() {
     //check clicked
     const checkCard = (e) =>{
         animeDatas.find((animeData)=>{
-            //check if card has already been touched
+            //check if card has been touched
             if(parseInt(e.target.id) === animeData.id){
                 if(animeData.toggle === true){
                     setScore(0)
                     alert('over')
+                    resetCards()
+                    return
                 }
             }
             //marks the card as touched
@@ -37,6 +39,16 @@ export default function Content() {
                 setScore((prevScore)=>{
                     return prevScore + 1
                 })
+            }
+            // console.log(animeData)
+        })
+    }
+
+    //reset cards to default
+    const resetCards = () => {
+        animeDatas.find((animeData)=>{
+            if (animeData.toggle === true){
+                animeData.toggle = false;
             }
         })
     }
