@@ -4,17 +4,32 @@
   box-sizing: border-box;
 }
 
+#root {
+    background: linear-gradient(
+        60deg,
+        black,
+        white
+        );
+    background-size: 200% 200%;
+    background-position: 0 25%;
+    animation: moveGradient 60s alternate infinite;
+}
+
+@keyframes moveGradient {
+  50% {
+  background-position: 100% 50%;
+  }
+}
+
 .main-container{
   min-height: 100vh;
   width: 100vw;
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: black;
 }
 
 .title-container {
-  background-color: black;
   color: white;
   display:flex;
   justify-content: center;
