@@ -138,7 +138,7 @@ img {
   cursor: not-allowed;
 }
 
-/* @media (max-width: 480px){
+@media (max-width: 480px){
   .modal-container{
     display: flex;
     opacity: 85%;
@@ -152,18 +152,3 @@ img {
     background-color: white;
   }
 }
-
-@media (max-width: 810px){
-  .modal-container{
-    display: flex;
-    opacity: 85%;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    border:5px solid orange;
-    top: 25%;
-    width: 50%;
-    height: 80%;
-    background-color: white;
-  }
-} */
