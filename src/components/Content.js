@@ -1,13 +1,15 @@
 import React, { useEffect, useState} from 'react';
 import animeDatas from '../data';
 import ScoreBoard from './Scoreboard';
-import Modal from './Modal';
+import LoseModal from './LoseModal';
+import WinModal from './WinModal';
 
 export default function Content() {
     //useState variables
     const [score, setScore] = useState(0);
     const [highScore, setHighScore] = useState(0);
-    const [gameStatus, setGameStatus] = useState(false);
+    const [gameLostStatus, setGameLostStatus] = useState(false);
+    const [gameWonStatus, setGameWonStatus] = useState(false);
     //check highscore
     const checkHighScore = () => {
         if (score > highScore){
@@ -18,7 +20,7 @@ export default function Content() {
     useEffect(()=>{
         animeDatas.sort(()=> 0.5 - Math.random());
         checkHighScore();
-    },[score,gameStatus])
+    },[score,gameLostStatus,gameWonStatus])
     //check clicked
     const checkCard = (e) =>{
         animeDatas.find((animeData)=>{
@@ -26,7 +28,7 @@ export default function Content() {
             if(parseInt(e.target.id) === animeData.id){
                 if(animeData.toggle === true){
                     setScore(0);
-                    setGameStatus(true);
+                    setGameLostStatus(true);
                     resetCards();
                     return;
                 }
@@ -34,7 +36,7 @@ export default function Content() {
             //marks the card as touched
             if(parseInt(e.target.id) === animeData.id){
                 animeData.toggle = true;
-                setGameStatus(false);
+                setGameLostStatus(false);
                 setScore((prevScore)=>{
                     return prevScore + 1;
                 })
@@ -54,7 +56,7 @@ export default function Content() {
     //check to see if they won. get all 20 right in a row.
     const checkWinner = () => {
         if (score === animeDatas.length){
-            alert('Congrats you beat the game! This is all you get! ;)');
+            setGameWonStatus(true);
         }
     };
     //card finder/maker
@@ -64,18 +66,20 @@ export default function Content() {
                     <img src={animeData.img} alt="anime pic"/>
                     <p>{animeData.name}</p>
                 </div>
-            
         )
     });
     return (
         <div className='content-container'>
-            {/* game over modal box upon losing winning streak */}
-            {gameStatus && <Modal click={()=>setGameStatus(false)}/>}
+            {/* game over modal upon losing winning streak */}
+            {gameLostStatus && <LoseModal click={()=>setGameLostStatus(false)}/>}
+            {/* game win modal upon getting 20 streaks win */}
+            {gameWonStatus && <WinModal click={()=>setGameWonStatus(false)}/>}
             <ScoreBoard
                 score={score}
                 highScore={highScore}
             />
             <div className="card-container"> 
+                {/* render shuffle cards */}
                 {showAnime}
             </div>
         </div>
