@@ -16,7 +16,7 @@ export default function Content() {
         }
     }
     
-    //shuffler
+    //shuffler every score/gamestatus update
     useEffect(()=>{
         animeDatas.sort(()=> 0.5 - Math.random());
         checkHighScore();
@@ -41,6 +41,7 @@ export default function Content() {
                 setScore((prevScore)=>{
                     return prevScore + 1;
                 })
+                //if 20streaks, check win
                 checkWinner();
             };
         })
