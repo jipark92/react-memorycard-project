@@ -8,20 +8,17 @@ export default function Content() {
     const [score, setScore] = useState(0);
     const [highScore, setHighScore] = useState(0);
     const [gameStatus, setGameStatus] = useState(false);
-
     //check highscore
     const checkHighScore = () => {
         if (score > highScore){
             setHighScore(score);
         }
-    }
-    
+    };
     //shuffler every score/gamestatus update
     useEffect(()=>{
         animeDatas.sort(()=> 0.5 - Math.random());
         checkHighScore();
     },[score,gameStatus])
-
     //check clicked
     const checkCard = (e) =>{
         animeDatas.find((animeData)=>{
@@ -46,7 +43,6 @@ export default function Content() {
             };
         })
     };
-
     //reset cards to default
     const resetCards = () => {
         animeDatas.find((animeData)=>{
@@ -55,14 +51,12 @@ export default function Content() {
             }
         })
     };
-
     //check to see if they won. get all 20 right in a row.
     const checkWinner = () => {
         if (score === animeDatas.length){
             alert('Congrats you beat the game! This is all you get! ;)');
         }
     };
-
     //card finder/maker
     const showAnime = animeDatas.map((animeData)=>{
         return (
@@ -73,7 +67,6 @@ export default function Content() {
             
         )
     });
-
     return (
         <div className='content-container'>
             {/* game over modal box upon losing winning streak */}
